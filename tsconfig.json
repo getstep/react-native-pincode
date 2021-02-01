@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2017",
     "module": "commonjs",
-    "jsx": "react",
+    "jsx": "react-native",
     "declaration": true,
     "outDir": "./dist",
     "strict": false,
