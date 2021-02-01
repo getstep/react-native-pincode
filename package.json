@@ -10,7 +10,8 @@
     "compile": "npm run build",
     "addlocal": "yarn add file:./local_modules/react-native-pincode",
     "test": "jest",
-    "pretty": "prettier --single-quote --no-semi --jsx-bracket-same-line --write \"src/**/*.{ts, tsx}\""
+    "pretty": "prettier --single-quote --no-semi --jsx-bracket-same-line --write \"src/**/*.{ts, tsx}\"",
+    "postinstall": "yarn build"
   },
   "jest": {
     "preset": "react-native"
