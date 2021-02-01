@@ -1,3 +1,4 @@
+import { ReactElement } from 'react'
 import delay from './delay'
 import PinCode, { PinStatus } from './PinCode'
 import { PinResultStatus, noBiometricsConfig } from './utils'
@@ -74,7 +75,7 @@ export interface IProps {
   styleTextTitle?: StyleProp<TextStyle>
   styleViewTitle?: StyleProp<ViewStyle>
   subtitle: string
-  subtitleComponent: any
+  subtitleComponent: (subtitle: string) => ReactElement<any>
   subtitleError?: string
   textCancelButtonTouchID?: string
   textPasswordVisibleFamily?: string
@@ -82,7 +83,7 @@ export interface IProps {
   timePinLockedAsyncStorageName: string
   title: string
   titleAttemptFailed?: string
-  titleComponent: any
+  titleComponent: (title: string) => ReactElement<any>
   titleConfirmFailed?: string
   touchIDDisabled: boolean
   touchIDSentence: string

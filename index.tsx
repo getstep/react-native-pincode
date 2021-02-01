@@ -1,3 +1,4 @@
+import { ReactElement } from 'react'
 import ApplicationLocked from "./src/ApplicationLocked";
 import { PinStatus } from "./src/PinCode";
 import PinCodeChoose from "./src/PinCodeChoose";
@@ -84,7 +85,7 @@ export type IProps = {
   stylePinCodeTextTitle?: StyleProp<TextStyle>
   stylePinCodeViewTitle?: StyleProp<TextStyle>
   subtitleChoose?: string
-  subtitleComponent?: any
+  subtitleComponent?: (subtitle: string) => ReactElement<any>
   subtitleConfirm?: string
   subtitleEnter?: string
   subtitleError?: string
@@ -100,7 +101,7 @@ export type IProps = {
   timerComponentLockedPage?: any
   titleAttemptFailed?: string
   titleChoose?: string
-  titleComponent?: any
+  titleComponent?: (title: string) => ReactElement<any>
   titleComponentLockedPage?: any
   titleConfirm?: string
   titleConfirmFailed?: string

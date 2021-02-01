@@ -1,3 +1,4 @@
+import { ReactElement } from 'react'
 import delay from "./delay";
 import { colors } from "./design/colors";
 import { grid } from "./design/grid";
@@ -36,7 +37,7 @@ export interface IProps {
   customBackSpaceIcon?: Function
   emptyColumnComponent: any
   endProcess: (pinCode: string, isErrorValidation?: boolean) => void
-  launchTouchID?: () => void 
+  launchTouchID?: () => void
   getCurrentLength?: (length: number) => void
   iconButtonDeleteDisabled?: boolean
   numbersButtonOverlayColor: string
@@ -73,12 +74,12 @@ export interface IProps {
   styleTextTitle?: StyleProp<TextStyle>
   styleViewTitle?: StyleProp<ViewStyle>
   subtitle: string
-  subtitleComponent?: any
+  subtitleComponent?: (subtitle: string) => ReactElement<any>
   subtitleError: string
   textPasswordVisibleFamily: string
   textPasswordVisibleSize: number
   titleAttemptFailed?: string
-  titleComponent?: any
+  titleComponent?: (title: string) => ReactElement<any>
   titleConfirmFailed?: string
   titleValidationFailed?: string
   validationRegex?: RegExp
@@ -593,7 +594,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 { opacity: opacity }
               ]}>
               {this.props.titleComponent
-                ? this.props.titleComponent()
+                ? this.props.titleComponent(this.props.sentenceTitle)
                 : this.renderTitle(
                   colorTitle,
                   opacityTitle,
@@ -601,7 +602,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                   showError
                 )}
               {this.props.subtitleComponent
-                ? this.props.subtitleComponent()
+                ? this.props.subtitleComponent(this.props.subtitle)
                 : this.renderSubtitle(
                   colorSubtitle,
                   opacityTitle,
@@ -697,7 +698,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 styles.colEmpty,
                 this.props.styleEmptyColumn
               ]}>
-              {this.props.emptyColumnComponent 
+              {this.props.emptyColumnComponent
                 ? this.props.emptyColumnComponent(this.props.launchTouchID)
                 : null
               }

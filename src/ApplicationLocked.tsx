@@ -1,3 +1,4 @@
+import { ReactElement } from 'react'
 import { colors } from "./design/colors";
 import { grid } from "./design/grid";
 import delay from "./delay";
@@ -43,7 +44,7 @@ export type IProps = {
   timePinLockedAsyncStorageName: string
   timeToLock: number
   timerComponent?: any
-  titleComponent?: any
+  titleComponent?: (title: string) => ReactElement<any>
 }
 
 export type IState = {
@@ -201,7 +202,7 @@ class ApplicationLocked extends React.PureComponent<IProps, IState> {
                 { opacity: state.opacity }
               ]}>
               {this.props.titleComponent
-                ? this.props.titleComponent()
+                ? this.props.titleComponent(this.props.textTitle)
                 : this.renderTitle()}
               {this.props.timerComponent
                 ? this.props.timerComponent()

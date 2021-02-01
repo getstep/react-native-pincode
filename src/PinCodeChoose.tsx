@@ -1,3 +1,4 @@
+import { ReactElement } from 'react'
 import PinCode, { PinStatus } from './PinCode'
 import { noBiometricsConfig } from './utils'
 
@@ -55,14 +56,14 @@ export interface IProps {
   styleTextTitle?: StyleProp<TextStyle>
   styleViewTitle?: StyleProp<ViewStyle>
   subtitleChoose: string
-  subtitleComponent: any
+  subtitleComponent: (subtitle: string) => ReactElement<any>
   subtitleConfirm: string
   subtitleError?: string
   textPasswordVisibleFamily?: string
   textPasswordVisibleSize?: number
   titleAttemptFailed?: string
   titleChoose: string
-  titleComponent: any
+  titleComponent: (title: string) => ReactElement<any>
   titleConfirm: string
   titleConfirmFailed?: string
   titleValidationFailed?: string
